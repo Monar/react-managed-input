@@ -1,0 +1,44 @@
+{
+  "name": "react-managed-input",
+  "version": "0.0.2",
+  "description": "React managed input",
+  "main": "lib/input.js",
+  "scripts": {
+    "build": "rollup -c",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "react",
+    "input",
+    "caret",
+    "component"
+  ],
+  "author": "Piotr Tomasz Monarski",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Monar/react-managed-input"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.3.0",
+    "eslint-plugin-react": "^7.1.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-test-renderer": "^15.6.1",
+    "rollup": "^0.43.0",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.0.0 || ^16.0.0",
+    "react": "^15.0.0 || ^16.0.0",
+    "react-dom": "^15.0.0 || ^16.0.0"
+  }
+}
