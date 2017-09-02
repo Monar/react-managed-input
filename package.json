@@ -5,6 +5,7 @@
   "main": "lib/input.js",
   "scripts": {
     "build": "rollup -c",
+    "example": "babel example/index.js --out-file example/example.js",
     "lint": "eslint ."
   },
   "keywords": [

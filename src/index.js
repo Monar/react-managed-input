@@ -16,10 +16,12 @@ export class Input extends React.Component {
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
+    innerRef: PropTypes.func,
   };
 
   state = {
     setSelection: null,
+    selection: null,
   };
 
   componentWillUnmount() {
@@ -50,7 +52,13 @@ export class Input extends React.Component {
   }
 
   setRefNode = (node) => {
+    const { innerRef } = this.props;
+
     this.node = node;
+
+    if (innerRef && typeof innerRef == 'function') {
+      innerRef(node);
+    }
   };
 
   setSelectionRange = (start, end, direction='forward') => {
