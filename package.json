@@ -1,6 +1,6 @@
 {
   "name": "react-managed-input",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "React managed input",
   "main": "lib/input.js",
   "scripts": {
