@@ -1,30 +1,58 @@
+[![npm version](https://badge.fury.io/js/react-managed-input.svg)](https://badge.fury.io/js/react-managed-input)
+
 # react-managed-input
 
-This is simple component to handle problems with jumping caret when changing
-value in `onChange` handler and passing it to value.
+### Motivation
 
-Check [this](https://monar.github.io/react-managed-input/index.html) simple
-example to see what it's all about.
+Have you ever needed to write managed input modifying value on the fly? Like this one:
+```js
 
-This component uses [selection api](https://developer.mozilla.org/en-US/docs/Web/API/Selection_API)
+class TrimmingInput extends React.Component {
+  state = { value: '' };
 
-[Check if you can use it](http://caniuse.com/#feat=selection-api)
+  handleChange = (event) => {
+    const value = event.target.value;
+    const trimmedValue = value.replace(/\s+/g, ' ').trimLeft();
+    this.setState({ value: trimmedValue });
+  };
 
-## API
+  render() {
+    return <input value={this.state.value} onChange={this.handleChange} />
+  }
+}
+```
+
+You probably encountered problems with caret jumping at the end of the input
+whenever you try to input value that will be trimmed. So this component will
+allow you to manage caret position and handle properly this kinds of problems.
+
+Check [**this**](https://monar.github.io/react-managed-input/index.html) example to see what I'm writing about.
+[Here](https://monar.github.io/react-managed-input/index.html) you will find source code of above example.
+
+
+### Browser compatibility
+
+This component uses [Selection API](https://developer.mozilla.org/en-US/docs/Web/API/Selection_API)
+check if you can use it. ([check here](http://caniuse.com/#feat=selection-api))
 
 ### Prop Types
 
-##### onChange `(value: string, selection: Selection,  preSelection: Selection, event: object): void`
+##### onChange
+`(value: string, selection: Selection,  prevSelection: Selection, event: object): void`
 
 Callback invoked whenever value of the input is changed.
 Selection is object of type: `{ start: number, end: number, direction: string }`.
 
-##### innerRef `(node: Node):void`
+##### innerRef
+`(node: Node):void`
 
 Callback invoked at mount time allows assigning inner component.
 
 ### Public Methods
 
-##### setSelectionRange (start: number, end: number, direction: string = 'forward'): void
+##### setSelectionRange 
 
-Will set selection after next render. If only first "start" argument then end value is set equal with start. 
+`(start: number, end: number, direction: string = 'forward'): void`
+
+Will set selection after next render. When `end` argument is not provided then
+is set to the same value as `start`.

@@ -1,4 +1,5 @@
 const pasteThis =  '          can             '.replace(/\s/g, '\u00A0');
+const inputWidth = 250;
 
 class Example extends React.Component {
 
@@ -24,23 +25,37 @@ class Example extends React.Component {
 
   render() {
     return (
-      <Box alignItems="center" margin="auto 0" flexFlow="column nowrap">
+      <Box
+        alignItems="center"
+        justifyContent="center"
+        margin="100px auto 0"
+        flexFlow="column nowrap"
+      >
         <Box flexFlow="column nowrap" alignItems="flex-start">
-          <p>Check this out, both inputs are unifying values with this code</p>
+          <p>Both inputs trim multiple whitespace, like this:</p>
           <p><code>value.replace(/\s+/g, ' ')</code></p>
           <p>Try to paste this: "{pasteThis}" after <strong>we</strong></p>
         </Box>
-        <Box padding={15} flexFlow="column nowrap">
+        <Box padding={15} alignItems="center" flexFlow="column nowrap">
           <code>
             {'<Input ref={setRef} onChange={handleChange1} value={value1}/>'}
           </code>
-          <Input ref={(n) => this.input = n} onChange={this.handleChange1} value={this.state.value1}/>
+          <Input
+            ref={(n) => this.input = n}
+            style={{ width: inputWidth }}
+            onChange={this.handleChange1}
+            value={this.state.value1}
+          />
         </Box>
-        <Box padding={15} flexFlow="column nowrap">
+        <Box padding={15} alignItems="center" flexFlow="column nowrap">
           <code>
             {'<input value={value2} onChange={handleChange2}/>'}
           </code>
-          <input value={this.state.value2} onChange={this.handleChange2}/>
+          <input
+            style={{ width: inputWidth }}
+            value={this.state.value2}
+            onChange={this.handleChange2}
+          />
         </Box>
       </Box>
     );

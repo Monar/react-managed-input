@@ -7,6 +7,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var pasteThis = '          can             '.replace(/\s/g, '\xA0');
+var inputWidth = 250;
 
 var Example = function (_React$Component) {
   _inherits(Example, _React$Component);
@@ -41,14 +42,19 @@ var Example = function (_React$Component) {
 
       return React.createElement(
         Box,
-        { alignItems: 'center', margin: 'auto 0', flexFlow: 'column nowrap' },
+        {
+          alignItems: 'center',
+          justifyContent: 'center',
+          margin: '100px auto 0',
+          flexFlow: 'column nowrap'
+        },
         React.createElement(
           Box,
           { flexFlow: 'column nowrap', alignItems: 'flex-start' },
           React.createElement(
             'p',
             null,
-            'Check this out, both inputs are unifying values with this code'
+            'Both inputs trim multiple whitespace, like this:'
           ),
           React.createElement(
             'p',
@@ -74,25 +80,34 @@ var Example = function (_React$Component) {
         ),
         React.createElement(
           Box,
-          { padding: 15, flexFlow: 'column nowrap' },
+          { padding: 15, alignItems: 'center', flexFlow: 'column nowrap' },
           React.createElement(
             'code',
             null,
             '<Input ref={setRef} onChange={handleChange1} value={value1}/>'
           ),
-          React.createElement(Input, { ref: function ref(n) {
+          React.createElement(Input, {
+            ref: function ref(n) {
               return _this2.input = n;
-            }, onChange: this.handleChange1, value: this.state.value1 })
+            },
+            style: { width: inputWidth },
+            onChange: this.handleChange1,
+            value: this.state.value1
+          })
         ),
         React.createElement(
           Box,
-          { padding: 15, flexFlow: 'column nowrap' },
+          { padding: 15, alignItems: 'center', flexFlow: 'column nowrap' },
           React.createElement(
             'code',
             null,
             '<input value={value2} onChange={handleChange2}/>'
           ),
-          React.createElement('input', { value: this.state.value2, onChange: this.handleChange2 })
+          React.createElement('input', {
+            style: { width: inputWidth },
+            value: this.state.value2,
+            onChange: this.handleChange2
+          })
         )
       );
     }
