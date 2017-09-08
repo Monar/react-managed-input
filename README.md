@@ -26,8 +26,8 @@ You probably encountered problems with caret jumping at the end of the input
 whenever you try to input value that will be trimmed. So this component will
 allow you to manage caret position and handle properly this kinds of problems.
 
-Check [**this**](https://monar.github.io/react-managed-input/index.html) example to see what I'm writing about.
-[Here](https://monar.github.io/react-managed-input/index.html) you will find source code of above example.
+Check the [**example**](https://monar.github.io/react-managed-input/index.html)
+to see what I'm writing about ([source code](https://github.com/Monar/react-managed-input/blob/master/example/index.js)).
 
 
 ### Browser compatibility
