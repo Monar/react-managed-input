@@ -40,13 +40,20 @@ export class Input extends React.Component {
   }
 
   render() {
+    const inputProps = Object.keys(this.props)
+      .filter((key) => !Input.propTypes[key])
+      .reduce(
+        (props, key) => { props[key] = this.props[key]; return props; },
+        {}
+      );
+
     return (
       <input
-        {...this.props}
         ref={this.setRefNode}
         onChange={this.handleChange}
         onFocus={this.handleFocus}
         onBlur={this.handleBlur}
+        {...inputProps}
       />
     );
   }

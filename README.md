@@ -33,7 +33,7 @@ to see what I'm writing about ([source code](https://github.com/Monar/react-mana
 ### Browser compatibility
 
 This component uses [Selection API](https://developer.mozilla.org/en-US/docs/Web/API/Selection_API)
-check if you can use it. ([check here](http://caniuse.com/#feat=selection-api))
+check if you can use it. ([click here](http://caniuse.com/#feat=selection-api))
 
 ### Prop Types
 
